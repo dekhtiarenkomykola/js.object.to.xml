@@ -1,5 +1,5 @@
 {
-  "name": "js.object.to.xml",
+  "name": "object-to-xml-string",
   "version": "0.0.1",
   "description": "Convert JS object to XML string",
   "main": "index.js",
