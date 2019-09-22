@@ -1,0 +1,17 @@
+{
+  "name": "js.object.to.xml",
+  "version": "0.0.1",
+  "description": "Convert JS object to XML string",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dekhtiarenkomykola/js.object.to.xml.git"
+  },
+  "keywords": [],
+  "author": "Mykola Dekhtiarenko <dekhtiarenko.mykola@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dekhtiarenkomykola/js.object.to.xml/issues"
+  },
+  "homepage": "https://github.com/dekhtiarenkomykola/js.object.to.xml#readme"
+}
