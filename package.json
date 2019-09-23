@@ -5,13 +5,17 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dekhtiarenkomykola/js.object.to.xml.git"
+    "url": "git+https://github.com/dekhtiarenkomykola/object.to.xml.srting.git"
   },
-  "keywords": [],
+  "keywords": [
+    "object",
+    "xml",
+    "convert"
+  ],
   "author": "Mykola Dekhtiarenko <dekhtiarenko.mykola@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dekhtiarenkomykola/js.object.to.xml/issues"
+    "url": "https://github.com/dekhtiarenkomykola/object.to.xml.srting/issues"
   },
-  "homepage": "https://github.com/dekhtiarenkomykola/js.object.to.xml#readme"
+  "homepage": "https://github.com/dekhtiarenkomykola/object.to.xml.srting#readme"
 }
