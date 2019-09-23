@@ -5,7 +5,7 @@ function wrrap(wr, value) {
     return `<${wr}>${value}</${wr}>`;
 }
 
-class JsObjectToXml {
+class objectToXmlString {
     constructor() {
         this.hooks = {
             [JS_TYPES.undefined]: () => { },
@@ -14,16 +14,13 @@ class JsObjectToXml {
             [JS_TYPES.boolean]: (b) => b,
             [JS_TYPES.string]: (s) => s,
             [JS_TYPES.object]: (o) => o,
-            // [JS_TYPES.function]: (f) => String(f),
-            // [JS_TYPES.array]: (arr) => arr,
+            [JS_TYPES.function]: (f) => String(f),
+            [JS_TYPES.array]: (arr) => arr,
             [JS_TYPES.date]: (d) => String(d),
         };
     }
 
     hook(name, action) {
-        if (name === JS_TYPES.function || name === JS_TYPES.array) {
-            throw 'Not correct hook name.';
-        }
         this.hooks[name] = action;
     }
 
@@ -32,24 +29,37 @@ class JsObjectToXml {
 
         for (const key in object) {
             if (object.hasOwnProperty(key)) {
-                const element = object[key];
-                const type = chechType.getObjectType(element);
+                const
+                    element     = object[key],
+                    elementType = chechType.getObjectType(element);
 
-                switch (type) {
+                switch (elementType) {
                     case JS_TYPES.object: {
-                        let value = this.convert(element);
+                        const value = this.convert(element);
                         convertXmlString += wrrap(key, value);
                         break;
                     }
                     case JS_TYPES.array: {
 
                         element.forEach(arrItem => {
-                            convertXmlString += wrrap(key, arrItem);
+                            let value = '';
+
+                            if (chechType.isObject(arrItem)) {
+                                value = this.convert(arrItem);
+                            } else {
+                                const arrItemType = chechType.getObjectType(arrItem);
+                                const hookResult = this.hooks[arrItemType](arrItem, key);
+                                if (!chechType.isUndefined(hookResult)) {
+                                    value += hookResult;
+                                }
+                            }
+
+                            convertXmlString += wrrap(key, value);
                         });
                         break;
                     }
                     default: {
-                        const hookResult = this.hooks[type](element);
+                        const hookResult = this.hooks[elementType](element, key);
                         if (!chechType.isUndefined(hookResult)) {
                             convertXmlString += wrrap(key, hookResult);
                         }
@@ -62,4 +72,4 @@ class JsObjectToXml {
     }
 }
 
-module.exports = JsObjectToXml;
+module.exports = objectToXmlString;

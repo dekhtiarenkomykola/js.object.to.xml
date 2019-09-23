@@ -1,26 +1,26 @@
 
 const JS_TYPES = {
     undefined: 'undefined',
-    null: 'null',
-    number: 'number',
-    boolean: 'boolean',
-    string: 'string',
-    object: 'object',
-    function: 'function',
-    array: 'array',
-    date: 'date'
+    null:      'null',
+    number:    'number',
+    boolean:   'boolean',
+    string:    'string',
+    object:    'object',
+    function:  'function',
+    array:     'array',
+    date:      'date'
 };
 
 const JS_TYPE_STRING_TOKEN = {
     '[object Undefined]': 'undefined',
-    '[object Null]': 'null',
-    '[object Number]': 'number',
-    '[object Boolean]': 'boolean',
-    '[object String]': 'string',
-    '[object Object]': 'object',
-    '[object Function]': 'function',
-    '[object Array]': 'array',
-    '[object Date]': 'date'
+    '[object Null]':      'null',
+    '[object Number]':    'number',
+    '[object Boolean]':   'boolean',
+    '[object String]':    'string',
+    '[object Object]':    'object',
+    '[object Function]':  'function',
+    '[object Array]':     'array',
+    '[object Date]':      'date'
 };
 
 function getObjectType(object) {
